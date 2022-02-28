@@ -1,0 +1,16 @@
+.descriptionBlock {
+    padding: 0 10px;
+}
+
+.profileImg {
+    border-radius: 20px;
+    padding: 10px 0 0 10px;
+}
+
+.status {
+    margin: -20px 0px 15px;
+}
+
+.contact {
+    padding-left: 10px;
+}
