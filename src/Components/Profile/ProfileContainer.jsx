@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Profile from '../Profile/Profile.jsx';
 import { getUserProfile, getStatus, updateStatus, savePhoto, saveProfile } from '../../Redux/profile-reducer.js';
@@ -6,39 +6,46 @@ import { withRouter } from "react-router-dom";
 // import { withAuthRedirect } from '../hoc/withAuthRedirect.js';
 import { compose } from 'redux';
 
-class ProfileContainer extends React.Component {
+const ProfileContainer = (props) => {
 
-    refreshProfile() {
-        let userId = this.props.match.params.userId;
-        if (!userId) {
-            userId = this.props.authorizedUserId;
-        }
-        this.props.getUserProfile(userId);
-        this.props.getStatus(userId);
-    }
-
-    componentDidMount() {
-        this.refreshProfile();
-    }
-
-    componentDidUpdate(prevState, prevProps, snapshot) {
-        if (this.props.match.params.userId !== prevProps.match.params.userId) {
-            this.refreshProfile();
-        }
-
-    }
-
-    render() {
+    const refreshProfile = (props) => {
         debugger;
-        return (
-            <Profile {...this.props} 
-                profile={this.props.profile}
-                status={this.props.status}
-                updateStatus={this.props.updateStatus}
-                isOwner={!this.props.match.params.userId}
-                savePhoto={this.props.savePhoto} />
-        )
+        let userId = props.match.params.userId;
+        if (!userId) {
+            userId = props.authorizedUserId;
+        }
+        props.getUserProfile(userId);
+        props.getStatus(userId);
     }
+
+    useEffect(() => {
+        debugger;
+        if (props.match.params.userId !== useState.match.params.userId) {
+            refreshProfile();
+        }
+    })
+
+    // componentDidMount() {
+    //     this.refreshProfile();
+    // }
+
+    // componentDidUpdate(prevState, prevProps, snapshot) {
+    //     if (this.props.match.params.userId !== prevProps.match.params.userId) {
+    //         this.refreshProfile();
+    //     }
+
+    // }
+
+    // render() {
+        return (
+            <Profile 
+                profile={props.profile}
+                status={props.status}
+                updateStatus={props.updateStatus}
+                isOwner={!props.match.params.userId}
+                savePhoto={props.savePhoto} />
+        )
+    // }
 }
 
 // let AuthRedirectComponent = withAuthRedirect(ProfileContainer);

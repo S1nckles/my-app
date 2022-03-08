@@ -75,33 +75,33 @@ let store = {
 
             newMessageText: ''
         },
-        usersPage: {
-            users: [{
-                    id: 1,
-                    photos: '',
-                    followed: true,
-                    name: '',
-                    status: '',
-                    location: {
-                        city: '',
-                        country: ''
-                    }
-                }],
-            pageSize: 10,
-            totalUsersCount: 0,
-            currentPage: 1,
-            isFetching: true,
-            followingInProgress: []
-        },
-        auth: {
-            userId: null,
-            email: null,
-            login: null,
-            isAuth: false
-        },
-        app: {
-            initialized: false
-        },
+        // usersPage: {
+        //     users: [{
+        //             id: 1,
+        //             photos: '',
+        //             followed: true,
+        //             name: '',
+        //             status: '',
+        //             location: {
+        //                 city: '',
+        //                 country: ''
+        //             }
+        //         }],
+        //     pageSize: 10,
+        //     totalUsersCount: 0,
+        //     currentPage: 1,
+        //     isFetching: true,
+        //     followingInProgress: []
+        // },
+        // auth: {
+        //     userId: null,
+        //     email: null,
+        //     login: null,
+        //     isAuth: false
+        // },
+        // app: {
+        //     initialized: false
+        // },
 
         sidePanel: {}
 
@@ -118,17 +118,15 @@ let store = {
     },
 
     dispatch: (action) => {
-        store._state.profilePage = profileReducer(store._state.profilePage, action);
-        store._state.dialogPage = dialogsReducer(store._state.dialogPage, action);
-        store._state.sidePanel = sidePanelReducer(store._state.sidePanel, action);
-        store._state.usersPage = usersReducer(store._state.usersPage, action);
+        this.getState()._state.profilePage = profileReducer(this.getState()._state.profilePage, action);
+        this.getState().dialogPage = dialogsReducer(this.getState().dialogPage, action);
+        this.getState().sidePanel = sidePanelReducer(this.getState().sidePanel, action);
+        this.getState().usersPage = usersReducer(this.getState().usersPage, action);
 
         store._callSubscriber(store._state);
     } //Dispatch - Отправлять, action - объект.
     //В объекта должен объязательно быть { type: //'ADD-POST' } , который должна иметь текстовый тип.
 }
-
-export default store;
 window.store = store;
 // store - OOP
 
