@@ -1,0 +1,19 @@
+.post {
+    display: flex;
+    flex-direction: column;
+}
+.post__content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+}
+.post img {
+    max-width: 70px;
+    max-height: 70px;
+    border-radius: 50%;
+}
+
+.post__like button {
+    margin-right: 10px;
+}

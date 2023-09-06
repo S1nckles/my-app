@@ -8,26 +8,8 @@ li {
   margin: 0 auto;
   display: grid;
   grid-template-areas: 
-  "header header"
-  "nav content";
+  "header header header header"
+  "nav content content content";
   grid-template-rows: 60px, 1fr;
   grid-template-columns: 2fr, 10fr;
-}
-.header {
-  background-color: darkslategrey;
-  grid-area: header;
-}
-.header img {
-  width: 80px;
-}
-.nav {
-  background-color: cornflowerblue;
-  grid-area: nav;
-}
-
-.content {
-  background-color: indigo;
-  grid-area: content;
-}
-.content img {
 }

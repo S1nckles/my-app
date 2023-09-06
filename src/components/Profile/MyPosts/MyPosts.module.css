@@ -1,0 +1,42 @@
+.content__mypost {
+    padding:0 30px;
+}
+.content__mypost {
+    display: grid;
+    justify-items: start;
+    align-items: center;
+}
+.mypostWrapper {
+    width: 95%;
+    display: grid;
+    justify-items: end;
+    align-items: center;
+    gap: 10px;
+}
+.mypostWrapper__input {
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    border: 0;
+    background-color: silver;
+    color: black;
+    resize: vertical;
+}
+.mypostWrapper__btn {
+    padding: 10px 30px;
+    font-size: 18px;
+    border: 0;
+    background-color: #609d9f;
+    color: white;
+}
+.mypostWrapper__btn:hover {
+    background-color: #436e70;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+}
+
+.posts {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 70px;
+}

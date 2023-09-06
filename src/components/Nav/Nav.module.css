@@ -1,0 +1,17 @@
+.nav {
+    background-color: cornflowerblue;
+    grid-area: nav;
+}
+.nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 26px;
+    font-weight: 400;
+}
+.nav ul li a:hover, .nav ul li a.active:hover {
+    color: darkblue;
+    transition: color 0.5s ease;
+}
+.nav ul li a.active {
+    color: rgb(94, 16, 251);
+}
