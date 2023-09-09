@@ -12,6 +12,6 @@
     color: darkblue;
     transition: color 0.5s ease;
 }
-.nav ul li a.active {
+.nav ul li a.activeLink {
     color: rgb(94, 16, 251);
 }

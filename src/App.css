@@ -8,8 +8,13 @@ li {
   margin: 0 auto;
   display: grid;
   grid-template-areas: 
-  "header header header header"
-  "nav content content content";
-  grid-template-rows: 60px, 1fr;
-  grid-template-columns: 2fr, 10fr;
+  "header header header"
+  "nav content content ";
+  grid-template-rows: 90px 1fr;
+  grid-template-columns: 3fr 10fr;
+}
+
+.app-wrapper-content {
+  background-color: indigo;
+  grid-area: content;
 }
