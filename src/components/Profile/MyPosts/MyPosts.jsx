@@ -2,7 +2,18 @@ import React from "react";
 import s from './MyPosts.module.css';
 import { Post } from "./Post/Post";
 
+let post = [
+  {id: 1, message: 'Hi, how are you?', likeCount: 13},
+  {id: 2, message: 'Nice, and you', likeCount: 20},
+  {id: 3, message: 'React is very good', likeCount: 39},
+  {id: 4, message: 'Look at me', likeCount: -1}
+]
+
+
 export const MyPosts = () => {
+
+  let messagesElem = post.map((p) => <Post massage={p.message} likeCount={p.likeCount}/> )
+  
   return (
       <div className={s.content__mypost}>
         <h3>My post</h3>
@@ -11,11 +22,7 @@ export const MyPosts = () => {
           <button className={s.mypostWrapper__btn}>Send</button>
         </div>
         <div className={s.posts}>
-          <Post massage="Hi, how are you?" likeCount='13'/>
-          <Post massage="Nice, and you"likeCount='20'/>
-          <Post massage="Normal" likeCount='0'/>
-          <Post massage="React is very good" likeCount='4'/>
-          <Post massage="Look at me" likeCount='-1'/>
+          {messagesElem}
         </div>
       </div>
   );
