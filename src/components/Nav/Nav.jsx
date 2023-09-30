@@ -3,7 +3,8 @@ import s from './Nav.module.css';
 import {NavLink} from 'react-router-dom';
 import { Friends } from "./Friends/Friends";
 
-export const Nav = () => {
+export const Nav = (props) => {
+    debugger;
     return (
         <nav className={s.nav}>
             <ul>
@@ -13,7 +14,7 @@ export const Nav = () => {
                 <li><NavLink to='/music' activeClassName={s.activeLink}>Music</NavLink></li>
                 <li><NavLink to='/contacts' activeClassName={s.activeLink}>Contacts</NavLink></li>
             </ul>
-            <Friends />
+            <Friends state={props.state.friendsData}/>
         </nav>
         
     );
