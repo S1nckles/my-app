@@ -1,0 +1,20 @@
+.friendElem {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 33.3333%;
+    text-decoration: none;   
+}
+.friendElem img {
+    width: 75px;
+}
+.friendElem span {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin: 0 auto;
+}
+.friendElem span:hover {
+    color: rgb(43, 47, 255);
+    transition: color 0.3s ease;
+}
