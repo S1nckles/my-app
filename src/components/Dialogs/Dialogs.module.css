@@ -18,6 +18,52 @@
     row-gap: 60px;
 
 }
+.dialogs__messages {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+    padding: 0 50px;
+}
+.messagesElements {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: left;
+    gap: 30px;
+    padding: 0 50px;
+}
+.dialogs__input {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    gap: 5px;
+}
+.dialogs__input input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px solid transparent;
+    outline: 1px solid black;
+    font-size: 18px;
+}
+
+.dialogs__input button {
+    padding: 10px 30px;
+    font-size: 18px;
+    border: 0;
+    border-radius: 0 10px 10px 0;
+    background-color: #609d9f;
+    color: white;
+}
+.dialogs__input button:hover {
+    background-color: #436e70;
+    transition: background-color 0.5s ease;
+    cursor: pointer;
+}
+
 
 .dialog a {
     font-size: 24px;
@@ -32,3 +78,5 @@
     font-size: 28px;  
     margin-left: 80px;  
 }
+
+

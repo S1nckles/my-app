@@ -3,23 +3,9 @@ import s from "./Dialogs.module.css";
 import { DialogItem } from "./DialogItem/DialogItem";
 import { MessageItem } from "./MessageItem/MessageItem";
 
-export const Dialogs = () => {
-    
-    let dialogs = [
-        {id: 1, name: 'Andrew'},
-        {id: 2, name: 'Eda'},
-        {id: 3, name: 'Mike'},
-        {id: 4, name: 'Siri'},
-        {id: 5, name: 'Alduin'}
-    ]
-    let messages = [
-        {id: 1, message: 'Wellcome'},
-        {id: 2, message: 'Nice to see you'},
-        {id: 3, message: 'You too'}
-    ]
-
-    let dialogsElem = dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
-    let messagesElem = messages.map(m => <MessageItem message={m.message} />) 
+export const Dialogs = (props) => {
+    let dialogsElem = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
+    let messagesElem = props.state.messages.map(m => <MessageItem message={m.message} />) 
     
     return (
         <div className={s.dialogs}>
@@ -29,7 +15,12 @@ export const Dialogs = () => {
                     {dialogsElem}
                 </ul>
                 <div className={s.dialogs__messages}>
-                    {messagesElem}
+                    <div className={s.messagesElements}>
+                        {messagesElem}
+                    </div>
+                    <div className={s.dialogs__input}>
+                        <input type="text" placeholder="Write..."/> <button>send</button>
+                    </div>
                 </div>
             </div>
         </div>

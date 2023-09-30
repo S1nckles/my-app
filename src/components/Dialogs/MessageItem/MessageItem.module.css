@@ -1,34 +1,14 @@
-.dialogs {
-    color: white;
-}
-.dialogs__title {
-    font-size: 38px;
-    padding-left: 52px;
-    letter-spacing: 1px;
-}
-.dialogsMain {
-    display: grid;
-    grid-template-columns: 5fr 10fr;
-    grid-template-rows: auto;
+
+.message {
+    padding: 30px;
+    border-radius: 35px;
+    border-bottom-right-radius: 0px;
+    background-color: gray;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-.dialogs__items {
-    display: grid;
-    border-right: 1px solid white;
-    row-gap: 60px;
-
-}
-
-.dialog a {
-    font-size: 24px;
-    margin-left: 50px;
-    font-weight: 500;
-    text-decoration: none;
-    color: white;
-
-}
-.dialog.active a{
-    color: darkcyan;
-    font-size: 28px;  
-    margin-left: 80px;  
+.messageBlock {
+    width: 100%;
+    display: flex;
 }
