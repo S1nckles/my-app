@@ -1,4 +1,4 @@
-import { renderEntareTree } from "../render";
+let renderEntareTree;
 
 export let state = {
     profilePage: {
@@ -67,5 +67,9 @@ export let updateNewMessageText = (newText) => {
     // перемальовування state
     renderEntareTree(state);
 }
+
+export let subscribe = (observer) => {
+    renderEntareTree = observer;
+} 
 
 export default state;
