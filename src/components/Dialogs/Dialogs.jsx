@@ -6,7 +6,18 @@ import { MessageItem } from "./MessageItem/MessageItem";
 export const Dialogs = (props) => {
     let dialogsElem = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
     let messagesElem = props.state.messages.map(m => <MessageItem message={m.message} />) 
-    
+ 
+    let newMessageElement = React.createRef();
+
+    const addMessage = () => {
+      props.addMessage();
+    }
+
+    let onMessageText = () => {
+        let text  = newMessageElement.current.value;
+        props.updateNewMessageText(text);
+    }
+
     return (
         <div className={s.dialogs}>
             <h3 className={s.dialogs__title}>Dialogs</h3>
@@ -19,7 +30,7 @@ export const Dialogs = (props) => {
                         {messagesElem}
                     </div>
                     <div className={s.dialogs__input}>
-                        <input type="text" placeholder="Write..."/> <button>send</button>
+                        <input ref={newMessageElement} onChange={onMessageText} value={props.state.newMessageText} type="text" placeholder="Write..."/> <button onClick={addMessage}>send</button>
                     </div>
                 </div>
             </div>
