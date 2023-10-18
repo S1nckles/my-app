@@ -1,22 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import state, { subscribe } from './redux/state';
+import store from './redux/store';
 import App from './App';
 import './index.css';
-import { addPost, addMessage, updateNewPostText, updateNewMessageText } from './redux/state';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let renderEntareTree = (state) => {
   root.render(  
     <React.StrictMode>
-      <App state={state} addPost={addPost} addMessage={addMessage} updateNewPostText={updateNewPostText} updateNewMessageText={updateNewMessageText}/>
+      <App state={state} addPost={store.addPost.bind(store)} addMessage={store.addMessage.bind(store)} updateNewPostText={store.updateNewPostText.bind(store)} updateNewMessageText={store.updateNewMessageText.bind(store)}/>
     </React.StrictMode>
   );
 }
+//Коли ми пишемо параметр з душками, то ми його викликаємо, а без просто передаємо
 
-renderEntareTree(state);
+renderEntareTree(store.getState());
 
-subscribe(renderEntareTree);
+store.subscribe(renderEntareTree);
 
 reportWebVitals();
