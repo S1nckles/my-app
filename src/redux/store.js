@@ -1,4 +1,7 @@
-
+const ADD_POST = 'ADD-POST';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
 let store = {    
     _state: {
@@ -45,40 +48,8 @@ let store = {
         this._callSubscriber = observer;
     },
 
-    // addPost () {
-    //     debugger;
-    //     let newPost = {
-    //         id: 5,
-    //         message: this._state.profilePage.newPostText,
-    //         likeCount: 0
-    //     }
-    //     this._state.profilePage.posts.push(newPost);
-    //     this._state.profilePage.newPostText = '';
-    //     this._callSubscriber(this._state);
-    // },
-
-    // addMessage() {
-    //     let newMessage = {
-    //         id: 4,
-    //         message: this._state.dialogsPage.newMessageText
-    //     }
-    //     this._state.dialogsPage.messages.push(newMessage);
-    //     this._state.dialogsPage.newMessageText = '';
-    //     this._callSubscriber(this._state)
-    // },   
-    // updateNewPostText(newText) {
-    //     this._state.profilePage.newPostText = newText;
-    //     this._callSubscriber(this._state);
-    // },
-    // updateNewMessageText(newText) {
-    //     // міняємо старе value на новий
-    //     this._state.dialogsPage.newMessageText = newText;
-    //     // перемальовування state
-    //     this._callSubscriber(this._state);
-    // },
-    
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 5,
                 message: this._state.profilePage.newPostText,
@@ -88,7 +59,11 @@ let store = {
             this._state.profilePage.newPostText = '';
             this._callSubscriber(this._state);
 
-        } else if (action.type === 'ADD-MESSAGE') {
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+           
+        } else if (action.type === ADD_MESSAGE) {
             let newMessage = {
                 id: 4,
                 message: this._state.dialogsPage.newMessageText
@@ -97,11 +72,7 @@ let store = {
             this._state.dialogsPage.newMessageText = '';
             this._callSubscriber(this._state)
 
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-
-        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
             // міняємо старе value на новий
             this._state.dialogsPage.newMessageText = action.newText;
             // перемальовування state
@@ -109,6 +80,29 @@ let store = {
         }
     }
 
+}
+
+export let addPostActionCreator = () => {
+    return {
+      type: ADD_POST
+    }
+}
+export let updateNewPostTextActionCreator = (text) => {
+    return {
+      type: UPDATE_NEW_POST_TEXT,
+      newText: text
+    }
+}
+export let addMessageActionCreator = () => {
+    return {
+        type: ADD_MESSAGE
+    }
+}
+export let updateNewMessageTextActionCreator = (text) => {
+    return {
+        type: UPDATE_NEW_MESSAGE_TEXT,
+        newText: text
+    }
 }
 
 window.store = store
