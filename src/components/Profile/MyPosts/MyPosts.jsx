@@ -20,8 +20,6 @@ export const MyPosts = (props) => {
     
   }
 
-  
-
   return (
       <div className={s.content__mypost}>
         <h3>My post</h3>
