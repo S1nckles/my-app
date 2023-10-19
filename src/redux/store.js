@@ -1,7 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+import DialogsReducer from "./reducers/dialogs-reducer";
+import ProfileReducer from "./reducers/profile-reducer";
+import SidebarReducer from "./reducers/sidebar-reducer";
 
 let store = {    
     _state: {
@@ -49,59 +48,12 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
-                likeCount: 0
-            }
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state);
-
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-           
-        } else if (action.type === ADD_MESSAGE) {
-            let newMessage = {
-                id: 4,
-                message: this._state.dialogsPage.newMessageText
-            }
-            this._state.dialogsPage.messages.push(newMessage);
-            this._state.dialogsPage.newMessageText = '';
-            this._callSubscriber(this._state)
-
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            // міняємо старе value на новий
-            this._state.dialogsPage.newMessageText = action.newText;
-            // перемальовування state
-            this._callSubscriber(this._state);
-        }
-    }
-
-}
-
-export let addPostActionCreator = () => {
-    return {
-      type: ADD_POST
-    }
-}
-export let updateNewPostTextActionCreator = (text) => {
-    return {
-      type: UPDATE_NEW_POST_TEXT,
-      newText: text
-    }
-}
-export let addMessageActionCreator = () => {
-    return {
-        type: ADD_MESSAGE
-    }
-}
-export let updateNewMessageTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_TEXT,
-        newText: text
+        this._state.profilePage = ProfileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = DialogsReducer(this._state.dialogsPage, action);
+        this._state.sidebar = SidebarReducer(this._state.sidebar, action);
+        
+        // перемальовування state;
+        this._callSubscriber(this._state)
     }
 }
 

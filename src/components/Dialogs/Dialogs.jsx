@@ -2,7 +2,7 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import { DialogItem } from "./DialogItem/DialogItem";
 import { MessageItem } from "./MessageItem/MessageItem";
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../redux/store";
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../redux/reducers/dialogs-reducer";
 
 export const Dialogs = (props) => {
     let dialogsElem = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
@@ -11,6 +11,7 @@ export const Dialogs = (props) => {
     let newMessageElement = React.createRef();
 
     const addMessage = () => {
+    if (newMessageElement.current.value === '' || newMessageElement.current.value === ' ')  return alert('Need write something');
       props.dispatch(addMessageActionCreator());
     }
 

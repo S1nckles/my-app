@@ -1,14 +1,21 @@
 
 .message {
-    padding: 30px;
+    display: inline-flex;
+    padding: 10px 30px;
     border-radius: 35px;
     border-bottom-right-radius: 0px;
     background-color: gray;
     font-size: 18px;
     font-weight: bold;
+    max-width: 45%;
+}
+.message p {
+    max-width: 100%;
+    word-break: break-all;
 }
 
 .messageBlock {
     width: 100%;
     display: flex;
+    justify-content: flex-end;
 }

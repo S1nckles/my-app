@@ -1,5 +1,5 @@
 import React from "react";
-import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../redux/store";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../redux/reducers/profile-reducer";
 import s from './MyPosts.module.css';
 import { Post } from "./Post/Post";
 
@@ -10,13 +10,17 @@ export const MyPosts = (props) => {
   let newPostElement = React.createRef();
 
   let addPost = () => {
+    if (newPostElement.current.value === '' || newPostElement.current.value === ' ')  return alert('Need write something');
     props.dispatch(addPostActionCreator());
   } 
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
     props.dispatch(updateNewPostTextActionCreator(text));
+    
   }
+
+  
 
   return (
       <div className={s.content__mypost}>
