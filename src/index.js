@@ -7,10 +7,9 @@ import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let renderEntareTree = (state) => {
-  debugger
   root.render(  
     <React.StrictMode>
-      <App state={state} dispatch={store.dispatch.bind(store)}/>
+      <App store={store} state={state} dispatch={store.dispatch.bind(store)}/>
     </React.StrictMode>
   );
 }
