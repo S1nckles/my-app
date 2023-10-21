@@ -10,16 +10,16 @@ import { Contacts } from './components/Contacts/Contacts';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-const App = (props) => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header/>
-        <Nav state={props.state.sidebar} />
+        <Nav/>
         <div className="app-wrapper-content">
           <Routes>
-            <Route path='/profile' element={<Profile store={props.store}/>} />
-            <Route path='/dialogs' element={<DialogsContainer store={props.store}/>} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/dialogs' element={<DialogsContainer />} />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
             <Route path='/contacts' elementm={<Contacts />} />

@@ -3,7 +3,7 @@ import s from './MyPosts.module.css';
 import { Post } from "./Post/Post";
 
 export const MyPosts = (props) => {
-  debugger
+  
   let messagesElem = props.posts.map((p) => <Post massage={p.message} likeCount={p.likeCount}/> )
 
   let newPostElement = React.createRef();
