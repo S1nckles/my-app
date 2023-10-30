@@ -7,7 +7,6 @@ import App from './App';
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-let renderEntareTree = (state) => {
   root.render(  
     <React.StrictMode>
       <Provider store={store}>
@@ -15,14 +14,6 @@ let renderEntareTree = (state) => {
       </Provider>
     </React.StrictMode>
   );
-}
 //Коли ми пишемо параметр з душками, то ми його викликаємо, а без просто передаємо
-
-renderEntareTree(store.getState());
-
-store.subscribe ( () => {
-  let state = store.getState();
-  renderEntareTree(state);
-})
 
 reportWebVitals();
