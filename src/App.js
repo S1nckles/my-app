@@ -7,6 +7,7 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 import { News } from './components/News/News';
 import { Music } from './components/Music/Music';
 import { Contacts } from './components/Contacts/Contacts';
+import UsersContainer from './components/Users/UsersContainer';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -22,7 +23,8 @@ const App = () => {
             <Route path='/dialogs' element={<DialogsContainer />} />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
-            <Route path='/contacts' elementm={<Contacts />} />
+            <Route path='/contacts' element={<Contacts />} />
+            <Route path='/users' element={<UsersContainer />} />
           </Routes>
         </div>
       </div>
