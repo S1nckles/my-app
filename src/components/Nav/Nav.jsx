@@ -7,11 +7,12 @@ export const Nav = () => {
     return (
         <nav className={s.nav}>
             <ul>
-                <li><NavLink to='/profile' activeclassname={s.activeLink}>Home</NavLink></li>
-                <li><NavLink to='/dialogs' activeclassname={s.activeLink}>Messages</NavLink></li>
-                <li><NavLink to='/news' activeclassname={s.activeLink}>News</NavLink></li>
-                <li><NavLink to='/music' activeclassname={s.activeLink}>Music</NavLink></li>
-                <li><NavLink to='/contacts' activeclassname={s.activeLink}>Contacts</NavLink></li>
+                <li><NavLink to='/profile' activeClassName={s.activeLink}>Home</NavLink></li>
+                <li><NavLink to='/dialogs' activeClassName={s.activeLink}>Messages</NavLink></li>
+                <li><NavLink to='/users' activeClassName={s.activeLink}>Find Users</NavLink></li>
+                <li><NavLink to='/news' activeClassName={s.activeLink}>News</NavLink></li>
+                <li><NavLink to='/music' activeClassName={s.activeLink}>Music</NavLink></li>
+                <li><NavLink to='/contacts' activeClassName={s.activeLink}>Contacts</NavLink></li>
             </ul>
             <FriendsContainer />
         </nav>
