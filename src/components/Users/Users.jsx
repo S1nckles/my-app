@@ -4,21 +4,47 @@ import axios from "axios";
 import userPhoto from '../../assets/img/user.png';
 
 class Users extends React.Component {
-    constructor(props) {
-        super(props);
+    // В класах перше виконується constructor потім render і останнім life cycle
+
+    // Якщо в конструкторі є тільки super(props) то можно його не писати
+    
+    componentDidMount() {
         // Коли ми зробили функ. if ми очистили компоненту і вона стала чистою 
-        if (this.props.users.length === 0) {
-            axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
-                if (response.data.items) {
-                    this.props.setUsers(response.data.items)
-                }
-            });
-        }
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+            if (response.data.items) {
+                this.props.setUsers(response.data.items);
+                this.props.setTotalUsersCount(response.data.totalCount);
+            }
+        });   
+    }
+    
+    onPageChange = (pageNumber) => {
+        this.props.setCurrentPage(pageNumber);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
+            if (response.data.items) {
+                this.props.setUsers(response.data.items)
+            }
+        });   
     }
     
     render() {
+
+        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
+        
+        let pages = [];
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
+
+        
+        
         return (
             <div className={s.wrapper}>
+                <div className={s.pagination}>
+                    {pages.map(p => {
+                        return <span className={this.props.currentPage === p && s.active} onClick={(e) => {this.onPageChange(p)}}>{p}</span>
+                    })}
+                </div>
                 {this.props.users.map(u => (
                     <div key={u.id}>
                         <div>

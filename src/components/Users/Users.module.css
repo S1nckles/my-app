@@ -9,3 +9,12 @@
 .wrapper {
     color: rgb(255, 255, 255);
 }
+
+.active {
+    font-weight: bold;
+    color: lightblue;
+}
+
+.pagination span {
+    font-size:22px;
+}
