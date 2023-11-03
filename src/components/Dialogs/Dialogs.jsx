@@ -15,9 +15,9 @@ export const Dialogs = (props) => {
         props.addMessage();
     }
 
-    let onMessageText = () => {
+    let updateNewMessageText = () => {
         let text  = newMessageElement.current.value;
-        props.onMessageText(text);
+        props.updateNewMessageText(text);
     }
 
     return (
@@ -32,7 +32,7 @@ export const Dialogs = (props) => {
                         {messagesElem}
                     </div>
                     <div className={s.dialogs__input}>
-                        <input ref={newMessageElement} onChange={onMessageText} value={props.newMessageText} type="text" placeholder="Write..."/> <button onClick={addMessage}>send</button>
+                        <input ref={newMessageElement} onChange={updateNewMessageText} value={props.newMessageText} type="text" placeholder="Write..."/> <button onClick={addMessage}>send</button>
                     </div>
                 </div>
             </div>
