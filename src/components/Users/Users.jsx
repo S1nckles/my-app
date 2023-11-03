@@ -10,7 +10,6 @@ const Users = (props) => {
         pages.push(i);
     }
     
-    
     return (
         <div className={s.wrapper}>
             <div className={s.pagination}>

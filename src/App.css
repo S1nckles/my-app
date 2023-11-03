@@ -17,4 +17,5 @@ li {
 .app-wrapper-content {
   background-color: indigo;
   grid-area: content;
+  position: relative;
 }
