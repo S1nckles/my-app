@@ -18,7 +18,8 @@ const App = () => {
         <Nav/>
         <div className="app-wrapper-content">
           <Routes>
-            <Route path='/profile' element={<ProfileContainer />} />
+            {/* Дальше : пишеться параметр. ? означає що параметр не обовязковий */}
+            <Route path='/profile/:profileId?' element={<ProfileContainer />} />
             <Route path='/dialogs' element={<DialogsContainer />} />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
