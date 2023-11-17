@@ -4,9 +4,13 @@
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 1;
     background-color: rgba(234, 234, 234, 0.422);
 
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.pageLoading img {
+    z-index: 1;
 }
