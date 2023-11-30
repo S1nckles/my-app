@@ -14,7 +14,9 @@ class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsFetching(true);
         // Коли ми зробили функ. if ми очистили компоненту і вона стала чистою 
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {
+            withCredentials: true 
+        }).then(response => {
             if (response.data.items) {
                 this.props.toggleIsFetching(false);
                 this.props.setUsers(response.data.items);
@@ -26,7 +28,9 @@ class UsersContainer extends React.Component {
     onPageChange = (pageNumber) => {
         this.props.toggleIsFetching(true);
         this.props.setCurrentPage(pageNumber);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
+            withCredentials: true 
+          }).then(response => {
             if (response.data.items) {
                 this.props.toggleIsFetching(false);
                 this.props.setUsers(response.data.items)
