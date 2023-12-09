@@ -1,10 +1,9 @@
 import React from "react";
-import { follow, setCurrentPage, toggleIsFetching, setTotalUsersCount, setUsers, unfollow } from "../../redux/reducers/users-reducer";
+import { follow, setCurrentPage, toggleIsFetching, setTotalUsersCount, setUsers, unfollow, toggleFollowingProgress } from "../../redux/reducers/users-reducer";
 import { connect } from "react-redux";
 import Users from "./Users";
 import Loading from "../Common/Loading/Loading";
 import { UserAPI } from "../../api/api";
-
 
 class UsersContainer extends React.Component {
     // В класах перше виконується constructor потім render і останнім life cycle
@@ -22,7 +21,6 @@ class UsersContainer extends React.Component {
             }
         });   
     }
-    
     onPageChange = (pageNumber) => {
         this.props.toggleIsFetching(true);
         this.props.setCurrentPage(pageNumber);
@@ -33,7 +31,6 @@ class UsersContainer extends React.Component {
             }
         });   
     }
-    
     render() { 
         return  <>
                     {this.props.isFetching ? <Loading /> : null }
@@ -43,7 +40,9 @@ class UsersContainer extends React.Component {
                             onPageChange={this.onPageChange}
                             users={this.props.users}
                             follow={this.props.follow}
-                            unfollow={this.props.unfollow}/> 
+                            unfollow={this.props.unfollow}
+                            toggleFollowingProgress={this.props.toggleFollowingProgress}
+                            followingInProgress={this.props.followingInProgress}/> 
                 </>
     }
 }
@@ -54,7 +53,8 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress,
     }
 }
 // let mapDispatchToProps = (dispatch) => {
@@ -86,5 +86,6 @@ export default connect(mapStateToProps, {
     setUsers,
     setCurrentPage,
     setTotalUsersCount,
-    toggleIsFetching
+    toggleIsFetching,
+    toggleFollowingProgress
 })(UsersContainer);

@@ -4,13 +4,16 @@ const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET-TOTAL-USERS-COUNT'; 
 const IS_TOGGLE_FETCHING = 'IS-TOGGLE-FETCHING'; 
+const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE-IS-FOLLOWING-PROGRESS'; 
 
 let initialState = {
     users: [],
     pageSize: 5,
     totalUsersCount: 0,
     currentPage: 1,
-    isFetching: null
+    isFetching: null,
+    // Якщо ми хочемо, щоб дізейблилась тільки кнопка, яку ми нажали, то замість booleang параметру ставимо масив
+    followingInProgress: []
 }
 
 const UsersReducer = (state = initialState, action) => {
@@ -44,7 +47,14 @@ const UsersReducer = (state = initialState, action) => {
             return { ...state, totalUsersCount: action.count} 
         case IS_TOGGLE_FETCHING:
             return { ...state, isFetching: action.isFetching}           
-        default:
+        case TOGGLE_IS_FOLLOWING_PROGRESS:
+            return { 
+                ...state, 
+                followingInProgress: action.isFetching 
+                ? [...state.followingInProgress, action.userId] 
+                : state.followingInProgress.filter(id => id !== action.userId)
+            }           
+            default:
             return state;
     }   
 }
@@ -56,5 +66,6 @@ export let setUsers = (users) => ({type: SET_USERS, users})
 export let setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage})
 export let setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})
 export let toggleIsFetching = (isFetching) => ({type: IS_TOGGLE_FETCHING, isFetching})
+export let toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId})
 
 export default UsersReducer;
