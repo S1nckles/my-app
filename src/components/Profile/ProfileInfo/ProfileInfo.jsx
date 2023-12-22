@@ -6,13 +6,13 @@ export const ProfileInfo = (props) => {
     <div>
       {props.profile && (
         <div className={s.content__backgroundPhoto}>
-          <img src={props.profile.photos?.large} alt='backgroundPhoto'/>
+          <img src={props.profile.photos?.large ? props.profile.photos?.large : `https://wallpaperaccess.com/full/3909258.jpg` } alt='backgroundPhoto'/>
         </div>
       )}
       {props.profile && (
         <div className={s.content__profile}>
           <div className={s.profileImg}>
-            <img src={props.profile.photos?.small} alt="avatar" />
+            <img src={props.profile.photos?.small ? props.profile.photos?.small : `http://localhost:3000/static/media/user.13384bf700c11f359465.png`} alt="avatar" />
           </div>
           <h2>{props.profile.fullName}</h2>
           <h4 className={s.profileAboutMe}>{props.profile.aboutMe}</h4>

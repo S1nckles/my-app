@@ -1,35 +1,39 @@
 import React from "react";
-import { follow, setCurrentPage, toggleIsFetching, setTotalUsersCount, setUsers, unfollow, toggleFollowingProgress } from "../../redux/reducers/users-reducer";
+import { follow, setCurrentPage, unfollow, toggleFollowingProgress, getUsers } from "../../redux/reducers/users-reducer";
 import { connect } from "react-redux";
 import Users from "./Users";
 import Loading from "../Common/Loading/Loading";
-import { UserAPI } from "../../api/api";
 
 class UsersContainer extends React.Component {
     // В класах перше виконується constructor потім render і останнім life cycle
 
     // Якщо в конструкторі є тільки super(props) то можно його не писати
     
+    debbuger
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        // Коли ми зробили функ. if ми очистили компоненту і вона стала чистою 
-        UserAPI.getUsers(this.props.currentPage, this.props.pageSize).then(response => {
-            if (response.items) {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(response.items);
-                this.props.setTotalUsersCount(response.totalCount);
-            }
-        });   
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        
+        // this.props.toggleIsFetching(true);
+        // // Коли ми зробили функ. if ми очистили компоненту і вона стала чистою 
+        // UserAPI.getUsers(this.props.currentPage, this.props.pageSize).then(response => {
+        //     if (response.items) {
+        //         this.props.toggleIsFetching(false);
+        //         this.props.setUsers(response.items);
+        //         this.props.setTotalUsersCount(response.totalCount);
+        //     }
+        // });   
     }
     onPageChange = (pageNumber) => {
-        this.props.toggleIsFetching(true);
-        this.props.setCurrentPage(pageNumber);
-        UserAPI.getUsers(pageNumber, this.props.pageSize).then(response => {
-            if (response.items) {
-                this.props.toggleIsFetching(false);
-                this.props.setUsers(response.items)
-            }
-        });   
+        this.props.getUsers(pageNumber, this.props.pageSize);
+
+        // this.props.toggleIsFetching(true);
+        // this.props.setCurrentPage(pageNumber);
+        // UserAPI.getUsers(pageNumber, this.props.pageSize).then(response => {
+        //     if (response.items) {
+        //         this.props.toggleIsFetching(false);
+        //         this.props.setUsers(response.items)
+        //     }
+        // });   
     }
     render() { 
         return  <>
@@ -83,9 +87,8 @@ let mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
     follow,
     unfollow,
-    setUsers,
     setCurrentPage,
-    setTotalUsersCount,
-    toggleIsFetching,
-    toggleFollowingProgress
+    toggleFollowingProgress,
+    // thunk не називають з префіксом thunkCreator a просто 
+    getUsers,
 })(UsersContainer);
