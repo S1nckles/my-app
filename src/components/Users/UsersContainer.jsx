@@ -9,7 +9,6 @@ class UsersContainer extends React.Component {
 
     // Якщо в конструкторі є тільки super(props) то можно його не писати
     
-    debbuger
     componentDidMount() {
         this.props.getUsers(this.props.currentPage, this.props.pageSize);
         
@@ -46,7 +45,8 @@ class UsersContainer extends React.Component {
                             follow={this.props.follow}
                             unfollow={this.props.unfollow}
                             toggleFollowingProgress={this.props.toggleFollowingProgress}
-                            followingInProgress={this.props.followingInProgress}/> 
+                            followingInProgress={this.props.followingInProgress}
+                            isAuth={this.props.isAuth}/> 
                 </>
     }
 }
@@ -59,6 +59,7 @@ let mapStateToProps = (state) => {
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
         followingInProgress: state.usersPage.followingInProgress,
+        isAuth: state.auth.isAuth
     }
 }
 // let mapDispatchToProps = (dispatch) => {

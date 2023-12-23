@@ -2,6 +2,7 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import { DialogItem } from "./DialogItem/DialogItem";
 import { MessageItem } from "./MessageItem/MessageItem";
+import { Navigate } from "react-router-dom";
 
 export const Dialogs = (props) => {
 
@@ -14,11 +15,13 @@ export const Dialogs = (props) => {
     if (newMessageElement.current.value === '' || newMessageElement.current.value === ' ')  return alert('Need write something');
         props.addMessage();
     }
-
     let updateNewMessageText = () => {
         let text  = newMessageElement.current.value;
         props.updateNewMessageText(text);
     }
+    
+    // замість <Redirect /> використовуємо <Navigate />
+    if(props.isAuth === false) return <Navigate to={"/login"} />
 
     return (
         <div className={s.dialogs}>

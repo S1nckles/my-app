@@ -31,10 +31,10 @@ export const getUserData = () => (dispatch) => {
     AuthAPI.me().then(response => {
         dispatch(toggleIsFetching(true));
         if (response.data.resultCode === 0) {
-            dispatch(toggleIsFetching(false));
             let { id, email, login } = response.data.data;
             dispatch(setUserData(id, email, login));
         }
+        dispatch(toggleIsFetching(false));
     })
 }
 export let toggleIsFetching = (isFetching) => ({type: IS_TOGGLE_FETCHING, isFetching})

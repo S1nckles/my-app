@@ -7,6 +7,7 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
+import LoginPage from './components/Login/login';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
@@ -25,6 +26,7 @@ const App = () => {
             <Route path='/music' element={<Music />} />
             <Route path='/contacts' element={<Contacts />} />
             <Route path='/users' element={<UsersContainer />} />
+            <Route path='/login' element={<LoginPage />} />
           </Routes>
         </div>
       </div>

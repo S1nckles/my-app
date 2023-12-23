@@ -1,7 +1,7 @@
 import React from "react";
 import s from './Users.module.css';
 import userPhoto from '../../assets/img/user.png';
-import {NavLink} from 'react-router-dom';
+import {Navigate, NavLink} from 'react-router-dom';
 
 const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -29,10 +29,10 @@ const Users = (props) => {
                         <div>
                             { u.followed 
                                 ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={ () => { 
-                                    props.unfollow(u.id); 
+                                    !props.isAuth ? <Navigate to={"/login"}/> : props.unfollow(u.id);
                                 }}>Unfollow</button> 
                                 : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={ () => {
-                                    props.follow(u.id);                                    
+                                    !props.isAuth ? <Navigate to={"/login"}/> : props.follow(u.id);
                                 } }>Follow</button> }
                         </div>
                     </div>
