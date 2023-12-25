@@ -19,6 +19,9 @@ export const UserAPI = {
     unfollow(userId) {
         return instance.delete(`follow/${userId}`)        
     },
+    status() {
+        return instance.put(`profile/status`)
+    }
 }
 
 export const AuthAPI = {

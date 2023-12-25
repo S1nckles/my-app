@@ -1,5 +1,6 @@
 import React from "react";
 import s from './ProfileInfo.module.css';
+import ProfileStatus from "./ProfileStatus";
 
 export const ProfileInfo = (props) => {
   return (
@@ -15,7 +16,7 @@ export const ProfileInfo = (props) => {
             <img src={props.profile.photos?.small ? props.profile.photos?.small : `http://localhost:3000/static/media/user.13384bf700c11f359465.png`} alt="avatar" />
           </div>
           <h2>{props.profile.fullName}</h2>
-          <h4 className={s.profileAboutMe}>{props.profile.aboutMe}</h4>
+          <ProfileStatus />
           <div className={s.profileJob}>
             <div className={s.lookingForAJob}>{props.profile.lookingForAJob}</div>
             <div className={s.lookingForAJobDescription}>{props.profile.lookingForAJobDescription}</div>
