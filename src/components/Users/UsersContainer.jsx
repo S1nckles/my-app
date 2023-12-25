@@ -3,6 +3,8 @@ import { follow, setCurrentPage, unfollow, toggleFollowingProgress, getUsers } f
 import { connect } from "react-redux";
 import Users from "./Users";
 import Loading from "../Common/Loading/Loading";
+import { compose } from "redux";
+import { withAuthRedirect } from "../hoc/withAuthRedirect";
 
 class UsersContainer extends React.Component {
     // В класах перше виконується constructor потім render і останнім life cycle
@@ -84,12 +86,7 @@ let mapStateToProps = (state) => {
 //         }
 //     }
 // }
-
-export default connect(mapStateToProps, {
-    follow,
-    unfollow,
-    setCurrentPage,
-    toggleFollowingProgress,
-    // thunk не називають з префіксом thunkCreator a просто 
-    getUsers,
-})(UsersContainer);
+export default compose(
+    withAuthRedirect,
+    connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers})
+)(UsersContainer);
