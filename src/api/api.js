@@ -18,10 +18,19 @@ export const UserAPI = {
     },
     unfollow(userId) {
         return instance.delete(`follow/${userId}`)        
-    },
-    status() {
-        return instance.put(`profile/status`)
     }
+}
+export const ProfileAPI = {
+    getProfile(profileId) {
+        return instance.get(`profile/` + profileId);
+    },
+    getStatus(profileId) {
+        return instance.get(`profile/status/` + profileId);
+    },
+    updateStatus(status) {
+        return instance.put(`profile/status/`, {status: status});
+    },
+
 }
 
 export const AuthAPI = {
@@ -29,7 +38,7 @@ export const AuthAPI = {
         return instance.get(`auth/me`)
     },
     getProfile(profileId) {
-        return instance.get(`profile/` + profileId)
+        return ProfileAPI.getProfile(profileId);
     }
 
 }
