@@ -23,8 +23,19 @@ class ProfileStatus extends React.Component {
             status: e.currentTarget.value
         });
     }
+    
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.status !== this.props.status) {
+            // setState пишемо тільки в if()
+            this.setState({
+                status: this.props.status
+            })
+        }
+        console.log('CDU');
+    }
 
   render() {
+    console.log('RCDU');
     return (
         <div>
             {!this.state.editMode &&
