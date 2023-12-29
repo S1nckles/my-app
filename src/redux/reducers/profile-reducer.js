@@ -1,7 +1,6 @@
 import { AuthAPI, ProfileAPI } from "../../api/api";
 
 const ADD_POST = 'ADD_POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 
@@ -12,7 +11,6 @@ let initialState = {
         {id: 3, message: 'React is very good', likeCount: 39},
         {id: 4, message: 'Look at me', likeCount: -1}
     ],
-    newPostText: 'bobb',
     profile: null,
     status: '',
 };
@@ -23,18 +21,12 @@ const ProfileReducer = (state = initialState, action) => {
             let newId = state.posts.length + 1;
             let newPost = {
                 id: newId,
-                message: state.newPostText,
+                message: action.newPostBody,
                 likeCount: 0
             };
             return {
                 ...state,
-                posts: [...state.posts, newPost],
-                newPostText: ''
-            };
-        case UPDATE_NEW_POST_TEXT:
-            return {
-                ...state,
-                newPostText: action.newText
+                posts: [...state.posts, newPost]
             };
         case SET_USER_PROFILE:
             return { ...state, profile: action.profile };
@@ -45,8 +37,7 @@ const ProfileReducer = (state = initialState, action) => {
     }   
 };
 
-export let addPost = () => ({ type: ADD_POST });
-export let updateNewPostText = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text });
+export let addPost= (newPostBody) => ({ type: ADD_POST, newPostBody });
 export let setStatus = (status) => ({ type: SET_STATUS, status });
 export let setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 
