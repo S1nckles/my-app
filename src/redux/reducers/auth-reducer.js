@@ -1,3 +1,4 @@
+import { Navigate } from "react-router-dom";
 import { AuthAPI } from "../../api/api";
 
 const SET_USER_DATA = 'SET_USER_DATA'; 
@@ -16,8 +17,7 @@ const AuthReducer = (state = initialState, action) => {
         case SET_USER_DATA:
             return {
                 ...state,
-                ...action.data,
-                isAuth: true
+                ...action.payload,
             }
         case IS_TOGGLE_FETCHING:
             return { ...state, isFetching: action.isFetching }
@@ -25,17 +25,39 @@ const AuthReducer = (state = initialState, action) => {
             return state;
     }   
 }
-
-export let setUserData = (id, email, login) => ({type: SET_USER_DATA, data: {id, email, login}})
-export const getUserData = () => (dispatch) => {
+// payload === data
+export let setUserData = (id, email, login, isAuth) => ({type: SET_USER_DATA, payload: {id, email, login, isAuth}})
+export const getUserData = (isAuth) => (dispatch) => {
     AuthAPI.me().then(response => {
         dispatch(toggleIsFetching(true));
         if (response.data.resultCode === 0) {
             let { id, email, login } = response.data.data;
-            dispatch(setUserData(id, email, login));
+            dispatch(setUserData(id, email, login, true));
+        }
+        if (isAuth === true) {
+            <Navigate to={'/profile'}/>
         }
         dispatch(toggleIsFetching(false));
     })
+}
+export let logIn = (email, password, rememberMe) => (dispatch) => {
+    AuthAPI.logIn(email, password, rememberMe).then(response => {
+        dispatch(toggleIsFetching(true));
+        if (response.data.resultCode === 0) {
+            dispatch(getUserData());
+            dispatch(toggleIsFetching(false));
+        }
+
+    });
+}
+export let logOut = () => (dispatch) => {
+    AuthAPI.logOut().then(response => {
+        dispatch(toggleIsFetching(true));
+        if (response.data.resultCode === 0) {
+            dispatch(setUserData(null, null, null, false));
+            dispatch(toggleIsFetching(false));
+        }
+    });
 }
 export let toggleIsFetching = (isFetching) => ({type: IS_TOGGLE_FETCHING, isFetching})
 

@@ -54,4 +54,4 @@ export default compose(
   connect(mapStateToProps, {getUserProfile, getStatus, updateStatus}),
   withRouter,
   withAuthRedirect
-)(ProfileContainer);
+)(ProfileContainer, true, '/login');

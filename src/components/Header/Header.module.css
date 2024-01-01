@@ -31,3 +31,23 @@
     border: 1px solid white;
     padding: 10px;
 }
+
+.authBlock {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.authBlock button {
+    font-size: 16px;
+    padding: 5px;
+    background-color: rgb(12, 115, 212);
+    border: none;
+    border-radius: 10px;
+    color: black;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+.authBlock button:hover {
+    background-color: rgb(16, 140, 159);
+}

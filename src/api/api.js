@@ -35,10 +35,15 @@ export const ProfileAPI = {
 
 export const AuthAPI = {
     me() {
-        return instance.get(`auth/me`)
+        return instance.get(`auth/me`);
     },
     getProfile(profileId) {
         return ProfileAPI.getProfile(profileId);
+    },
+    logIn(email, password, rememberMe = false) {
+        return instance.post(`/auth/login`, {email, password, rememberMe});
+    },
+    logOut() {
+        return instance.delete(`/auth/login`);
     }
-
 }

@@ -16,3 +16,13 @@ export const withAuthRedirect = (Component) => {
     let ConnectedAuthRedirectComponent = connect(mapStateToPropsForRedirect)(RedirectComponent)
     return ConnectedAuthRedirectComponent;
 }
+// export const withAuthRedirectTrue = (Component) => {
+//     const RedirectComponent = (props) => {
+//         // замість <Redirect /> використовуємо <Navigate />
+//         if(props.isAuth) return <Navigate to={"/profile"} />
+//         return <Component {...props} />
+//     }
+
+//     let ConnectedAuthRedirectComponent = connect(mapStateToPropsForRedirect)(RedirectComponent)
+//     return ConnectedAuthRedirectComponent;
+// }
