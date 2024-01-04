@@ -5,7 +5,7 @@ import { required } from "../../utils/validators/validators";
 import { Input } from "../Common/FormsControl/FormsControl";
 import {logIn} from "../../redux/reducers/auth-reducer";
 import { Navigate } from 'react-router-dom';
-
+import s from '../Common/FormsControl/FormsControl.module.css';
 
 let LoginForm = (props) => {
     return <form onSubmit={props.handleSubmit}>
@@ -13,6 +13,7 @@ let LoginForm = (props) => {
         <div className=""><Field name="email" component={Input} validate={[required]} type={"text"} placeholder="E-mail..." /></div>
         <div className=""><Field name="password" component={Input} validate={[required]} type={"password"} placeholder="Password..."/></div>
         <div className=""><Field name="rememberMe" component={'input'} type={"checkbox"}/>Remember me</div>
+        {props.error && <div className={s.formSummaryError}>{props.error}</div>}
         <div className=""><button type="submit">Sign in</button></div>
     </form>
 }

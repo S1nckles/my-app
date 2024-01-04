@@ -8,3 +8,10 @@
     font-weight: bold;
     font-size: 22px;
 }
+
+.formSummaryError {
+    border: solid 2px red;
+    font-size: 22px;
+    color: red;
+    font-weight: bold;
+}

@@ -1,4 +1,5 @@
 import { Navigate } from "react-router-dom";
+import { stopSubmit } from "redux-form";
 import { AuthAPI } from "../../api/api";
 
 const SET_USER_DATA = 'SET_USER_DATA'; 
@@ -45,8 +46,13 @@ export let logIn = (email, password, rememberMe) => (dispatch) => {
         dispatch(toggleIsFetching(true));
         if (response.data.resultCode === 0) {
             dispatch(getUserData());
-            dispatch(toggleIsFetching(false));
+        } else {
+            // Якщо сервер повернув нам message з значеннями, то тоді ми виводимо ці значення (строку), Якщо ж ні тоді буде прописано Some error
+            let message = response.data.messages.length > 0 ? response.data.messages[0] : 'Some error'
+            // Якщо сервер не вертає response.data.resultCode === 0 (тобто помилка) тоді ми зупиняємо сабмітинг і висвічуємо помилку
+            dispatch(stopSubmit('login', {_error: message}));
         }
+        dispatch(toggleIsFetching(false));
 
     });
 }
