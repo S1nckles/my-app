@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import Users from "./Users";
 import Loading from "../Common/Loading/Loading";
 import { compose } from "redux";
-import { withAuthRedirect } from "../hoc/withAuthRedirect";
 
 class UsersContainer extends React.Component {
     // В класах перше виконується constructor потім render і останнім life cycle

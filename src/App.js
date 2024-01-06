@@ -48,20 +48,20 @@ class App extends React.Component {
   }
 }
 
-function withRouter(Component) {
-  function ComponentWithRouterProp(props) {
-      // let location = useLocation();
-      let navigate = useNavigate();
-      let params = useParams();
-      return (
-          <Component
-              {...props}
-              router={{ navigate, params }}
-          />
-      );
-  }
-  return ComponentWithRouterProp;
-}
+// function withRouter(Component) {
+//   function ComponentWithRouterProp(props) {
+//       // let location = useLocation();
+//       let navigate = useNavigate();
+//       let params = useParams();
+//       return (
+//           <Component
+//               {...props}
+//               router={{ navigate, params }}
+//           />
+//       );
+//   }
+//   return ComponentWithRouterProp;
+// }
 
 let mapStateToProps = (state) => ({
   initialized: state.app.initialized
