@@ -1,9 +1,10 @@
 import React from "react";
-import { follow, setCurrentPage, unfollow, toggleFollowingProgress, getUsers } from "../../redux/reducers/users-reducer";
+import { follow, setCurrentPage, unfollow, toggleFollowingProgress, requestUsers } from "../../redux/reducers/users-reducer";
 import { connect } from "react-redux";
 import Users from "./Users";
 import Loading from "../Common/Loading/Loading";
 import { compose } from "redux";
+import { getFetching, getFollowingInProgress, getPage, getPageSize, getTotalUsersCount, getUsers } from "../../redux/users-selectors";
 
 class UsersContainer extends React.Component {
     // В класах перше виконується constructor потім render і останнім life cycle
@@ -11,11 +12,11 @@ class UsersContainer extends React.Component {
     // Якщо в конструкторі є тільки super(props) то можно його не писати
     
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        this.props.requestUsers(this.props.currentPage, this.props.pageSize);
         
         // this.props.toggleIsFetching(true);
         // // Коли ми зробили функ. if ми очистили компоненту і вона стала чистою 
-        // UserAPI.getUsers(this.props.currentPage, this.props.pageSize).then(response => {
+        // UserAPI.requestUsers(this.props.currentPage, this.props.pageSize).then(response => {
         //     if (response.items) {
         //         this.props.toggleIsFetching(false);
         //         this.props.setUsers(response.items);
@@ -24,11 +25,11 @@ class UsersContainer extends React.Component {
         // });   
     }
     onPageChange = (pageNumber) => {
-        this.props.getUsers(pageNumber, this.props.pageSize);
+        this.props.requestUsers(pageNumber, this.props.pageSize);
 
         // this.props.toggleIsFetching(true);
         // this.props.setCurrentPage(pageNumber);
-        // UserAPI.getUsers(pageNumber, this.props.pageSize).then(response => {
+        // UserAPI.requestUsers(pageNumber, this.props.pageSize).then(response => {
         //     if (response.items) {
         //         this.props.toggleIsFetching(false);
         //         this.props.setUsers(response.items)
@@ -52,17 +53,29 @@ class UsersContainer extends React.Component {
     }
 }
 
+// let mapStateToProps = (state) => {
+//     return {
+//         users: state.usersPage.users,
+//         pageSize: state.usersPage.pageSize,
+//         totalUsersCount: state.usersPage.totalUsersCount,
+//         currentPage: state.usersPage.currentPage,
+//         isFetching: state.usersPage.isFetching,
+//         followingInProgress: state.usersPage.followingInProgress,
+//         isAuth: state.auth.isAuth
+//     }
+// }
 let mapStateToProps = (state) => {
     return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-        followingInProgress: state.usersPage.followingInProgress,
+        users: getUsers(state),
+        pageSize: getPageSize(state),
+        totalUsersCount: getTotalUsersCount(state),
+        currentPage: getPage(state),
+        isFetching: getFetching(state),
+        followingInProgress: getFollowingInProgress(state),
         isAuth: state.auth.isAuth
     }
 }
+
 // let mapDispatchToProps = (dispatch) => {
 //     return {
 //         follow: (userId) => {
@@ -86,5 +99,5 @@ let mapStateToProps = (state) => {
 //     }
 // }
 export default compose(
-    connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers})
+    connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers})
 )(UsersContainer);

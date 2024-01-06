@@ -70,11 +70,12 @@ export let setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COU
 export let toggleIsFetching = (isFetching) => ({type: IS_TOGGLE_FETCHING, isFetching})
 export let toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId})
 
-export const getUsers = (currentPage, pageSize) => (dispatch) => {
+export const requestUsers = (page, pageSize) => (dispatch) => {
     // пишемо dispatch(...) тому що він у тому ж самому файлі
     dispatch(toggleIsFetching(true));
+    dispatch(setCurrentPage(page));
     // Для currentPage & pageSize передаємо через параметр, як на сторінці 42 в конспекті по реакту
-    UserAPI.getUsers(currentPage, pageSize).then(response => {
+    UserAPI.getUsers(page, pageSize).then(response => {
         // Коли ми зробили функ. if ми очистили компоненту і вона стала чистою 
         if (response.items) {
             dispatch(toggleIsFetching(false));
