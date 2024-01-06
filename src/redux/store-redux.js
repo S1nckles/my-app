@@ -6,6 +6,7 @@ import UsersReducer from "./reducers/users-reducer";
 import AuthReducer from "./reducers/auth-reducer";
 import {thunk} from "redux-thunk";
 import { reducer as formReducer } from 'redux-form'
+import AppReducer from "./reducers/app-reducer";
 
 let reducers = combineReducers({
     profilePage: ProfileReducer,
@@ -15,6 +16,7 @@ let reducers = combineReducers({
     auth: AuthReducer,
     // важливо щоб ім'я свойства було form
     form: formReducer,
+    app: AppReducer
 })
 
 // Створювання MiddleWare

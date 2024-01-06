@@ -10,7 +10,10 @@ class ProfileContainer extends React.Component {
   componentDidMount() {
     let profileId = this.props.router.params.profileId;
     if(!profileId) {
-      profileId = 21493
+      profileId = 21493;
+      if (!profileId) {
+        this.props.history.push('/login');
+      }
     }
     // let profileId = this.props.router.params.userId;
     // if(!profileId) {
@@ -31,7 +34,7 @@ class ProfileContainer extends React.Component {
 
 
 // wrapper to use react router's v6 hooks in class component(to use HOC pattern, like in router v5)
-// ТУТ замість класової комп. зробили функ. з хуками, тому що в класовій не імпорт. withRouter
+// ТУТ замість класової комп. зробили функ. з хуками, тому що react-router-dom удалила withRouter в нових версіях
 function withRouter(Component) {
   function ComponentWithRouterProp(props) {
       let location = useLocation();

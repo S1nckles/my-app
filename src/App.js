@@ -8,30 +8,65 @@ import UsersContainer from './components/Users/UsersContainer';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import LoginPage from './components/Login/login';
+import Loading from './components/Common/Loading/Loading';
+import { initializeApp } from './redux/reducers/app-reducer';
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter, Route, Routes, useNavigate, useParams } from 'react-router-dom';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
 
-const App = () => {
-  return (
-    <BrowserRouter>
-      <div className="app-wrapper">
-        <HeaderContainer/>
-        <Nav/>
-        <div className="app-wrapper-content">
-          <Routes>
-            {/* Дальше : пишеться параметр. ? означає що параметр не обовязковий */}
-            <Route path='/profile/:profileId?' element={<ProfileContainer />} />
-            <Route path='/dialogs' element={<DialogsContainer />} />
-            <Route path='/news' element={<News />} />
-            <Route path='/music' element={<Music />} />
-            <Route path='/contacts' element={<Contacts />} />
-            <Route path='/users' element={<UsersContainer />} />
-            <Route path='/login' element={<LoginPage />} />
-          </Routes>
+
+class App extends React.Component {
+  componentDidMount() {
+    this.props.initializeApp();
+  }
+  render() {
+    
+    if(!this.props.initialized) return <Loading />
+    
+    return (
+      <BrowserRouter>
+        <div className="app-wrapper">
+          <HeaderContainer/>
+          <Nav/>
+          <div className="app-wrapper-content">
+            <Routes>
+              {/* Дальше : пишеться параметр. ? означає що параметр не обовязковий */}
+              <Route path='/profile/:profileId?' element={<ProfileContainer />} />
+              <Route path='/dialogs' element={<DialogsContainer />} />
+              <Route path='/news' element={<News />} />
+              <Route path='/music' element={<Music />} />
+              <Route path='/contacts' element={<Contacts />} />
+              <Route path='/users' element={<UsersContainer />} />
+              <Route path='/login' element={<LoginPage />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </BrowserRouter>
-  );
+      </BrowserRouter>
+    );
+  }
 }
 
-export default App;
+function withRouter(Component) {
+  function ComponentWithRouterProp(props) {
+      // let location = useLocation();
+      let navigate = useNavigate();
+      let params = useParams();
+      return (
+          <Component
+              {...props}
+              router={{ navigate, params }}
+          />
+      );
+  }
+  return ComponentWithRouterProp;
+}
+
+let mapStateToProps = (state) => ({
+  initialized: state.app.initialized
+})
+
+export default compose(  
+  connect(mapStateToProps, {initializeApp})
+  )(App);

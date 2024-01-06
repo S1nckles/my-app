@@ -5,9 +5,7 @@ import { getUserData, logOut } from "../../redux/reducers/auth-reducer";
 import Loading from "../Common/Loading/Loading";
 
 class HeaderContainer extends React.Component {
-  componentDidMount() {
-    this.props.getUserData(this.props.id, this.props.email, this.props.login);
-  }
+ 
 
   render() {
     return <>
