@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const ProfileStatusWithHooks = (props) => {
 
@@ -7,6 +6,12 @@ const ProfileStatusWithHooks = (props) => {
     //Тут використовується Деструктуризація, тобто editMode і setEditMode присвоюють значення, яке написано в useState(...)
     //Завжди буде editMode значенням а setEditMode - функцією
     let [status, setStatus] = useState(props.status)
+
+    useEffect( () => {
+        console.log("useEffect викликано");
+        setStatus(props.status);
+    }, [props.status]);
+    
 
     let activateEditMode = () => {
         setEditMode(true);
