@@ -8,7 +8,6 @@ const ProfileStatusWithHooks = (props) => {
     let [status, setStatus] = useState(props.status)
 
     useEffect( () => {
-        console.log("useEffect викликано");
         setStatus(props.status);
     }, [props.status]);
     

@@ -18,7 +18,8 @@ let CreatePostReduxForm = reduxForm({
   form: 'post'
 })(CreatePostForm)
 
-export const MyPosts = (props) => {
+export const MyPosts = React.memo((props) => {
+  console.log('RENDER MYPOST')
   let messagesElem = props.posts.map((p) => <Post massage={p.message} likeCount={p.likeCount} key={p.id}/> )
 
   let addNewPost = (values) => {
@@ -34,4 +35,5 @@ export const MyPosts = (props) => {
         </div>
       </div>
   );
-}
+});
+
