@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { follow, setCurrentPage, unfollow, toggleFollowingProgress, requestUsers } from "../../redux/reducers/users-reducer";
 import { connect } from "react-redux";
 import Users from "./Users";
@@ -6,14 +6,12 @@ import Loading from "../Common/Loading/Loading";
 import { compose } from "redux";
 import { getFetching, getFollowingInProgress, getPage, getPageSize, getTotalUsersCount, getUsers } from "../../redux/users-selectors";
 
-class UsersContainer extends React.Component {
-    // В класах перше виконується constructor потім render і останнім life cycle
-
-    // Якщо в конструкторі є тільки super(props) то можно його не писати
-    
-    componentDidMount() {
-        this.props.requestUsers(this.props.currentPage, this.props.pageSize);
-        
+const UsersContainer = React.memo((props) => {
+    useEffect(() => {
+        props.requestUsers(props.currentPage, props.pageSize);
+    }, [props.currentPage]);
+    // componentDidMount() {
+    //     this.props.requestUsers(this.props.currentPage, this.props.pageSize); 
         // this.props.toggleIsFetching(true);
         // // Коли ми зробили функ. if ми очистили компоненту і вона стала чистою 
         // UserAPI.requestUsers(this.props.currentPage, this.props.pageSize).then(response => {
@@ -23,10 +21,10 @@ class UsersContainer extends React.Component {
         //         this.props.setTotalUsersCount(response.totalCount);
         //     }
         // });   
-    }
-    onPageChange = (pageNumber) => {
-        this.props.requestUsers(pageNumber, this.props.pageSize);
+    // }
 
+    const onPageChange = (pageNumber) => {
+        props.requestUsers(pageNumber, props.pageSize);
         // this.props.toggleIsFetching(true);
         // this.props.setCurrentPage(pageNumber);
         // UserAPI.requestUsers(pageNumber, this.props.pageSize).then(response => {
@@ -34,24 +32,27 @@ class UsersContainer extends React.Component {
         //         this.props.toggleIsFetching(false);
         //         this.props.setUsers(response.items)
         //     }
-        // });   
-    }
-    render() { 
-        return  <>
-                    {this.props.isFetching ? <Loading /> : null }
-                    <Users totalUsersCount={this.props.totalUsersCount}
-                            pageSize={this.props.pageSize}
-                            currentPage={this.props.currentPage}
-                            onPageChange={this.onPageChange}
-                            users={this.props.users}
-                            follow={this.props.follow}
-                            unfollow={this.props.unfollow}
-                            toggleFollowingProgress={this.props.toggleFollowingProgress}
-                            followingInProgress={this.props.followingInProgress}
-                            isAuth={this.props.isAuth}/> 
-                </>
-    }
-}
+        // });  
+    };
+
+    return (
+        <>
+            {props.isFetching ? <Loading /> : null}
+            <Users
+                totalUsersCount={props.totalUsersCount}
+                pageSize={props.pageSize}
+                currentPage={props.currentPage}
+                onPageChange={onPageChange}
+                users={props.users}
+                follow={props.follow}
+                unfollow={props.unfollow}
+                toggleFollowingProgress={props.toggleFollowingProgress}
+                followingInProgress={props.followingInProgress}
+                isAuth={props.isAuth}
+            />
+        </>
+    );
+});
 
 // let mapStateToProps = (state) => {
 //     return {
@@ -74,8 +75,8 @@ let mapStateToProps = (state) => {
         isFetching: getFetching(state),
         followingInProgress: getFollowingInProgress(state),
         isAuth: state.auth.isAuth
-    }
-}
+    };
+};
 
 // let mapDispatchToProps = (dispatch) => {
 //     return {
@@ -100,5 +101,5 @@ let mapStateToProps = (state) => {
 //     }
 // }
 export default compose(
-    connect(mapStateToProps, {follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers})
+    connect(mapStateToProps, { follow, unfollow, setCurrentPage, toggleFollowingProgress, requestUsers })
 )(UsersContainer);

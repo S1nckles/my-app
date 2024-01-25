@@ -4,15 +4,11 @@ import { Header } from "./Header";
 import { getUserData, logOut } from "../../redux/reducers/auth-reducer";
 import Loading from "../Common/Loading/Loading";
 
-class HeaderContainer extends React.Component {
- 
-
-  render() {
-    return <>
-            {this.props.isFetching ? <Loading /> : null }
-            <Header {...this.props} />;
-          </>
-  }
+const HeaderContainer = (props) => {
+  return <>
+    {props.isFetching ? <Loading /> : null }
+    <Header {...props} />;
+  </>
 }
 
 let mapStateToProps = (state) => ({
