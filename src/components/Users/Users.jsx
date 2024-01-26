@@ -2,54 +2,16 @@ import React from "react";
 import s from './Users.module.css';
 import userPhoto from '../../assets/img/user.png';
 import {Navigate, NavLink} from 'react-router-dom';
+import Paginator from "../Common/Paginator/Paginator";
+import User from "./User";
 
-const Users = (props) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-    
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
-    }
-    
+const Users = ({totalUsersCount, pageSize, currentPage, onPageChange, users, ...props}) => {
     return (
         <div className={s.wrapper}>
-            <div className={s.pagination}>
-                {pages.map(p => {
-                    return <span className={props.currentPage === p && s.active} onClick={(e) => {props.onPageChange(p)}}>{p}</span>
-                })}
+            <Paginator totalUsersCount={totalUsersCount} pageSize={pageSize} currentPage={currentPage} onPageChange={onPageChange} />
+            <div>
+                {users.map(u => <User user={u} followingInProgress={props.followingInProgress} follow={props.follow} unfollow={props.unfollow} key={u.id} {...props} />)}
             </div>
-            {props.users.map(u => (
-                <div key={u.id}>
-                    <div>
-                        <div className={s.userPhoto}>
-                            <NavLink to={`/profile/` + u.id}>
-                                <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="UserPhoto" />
-                            </NavLink>
-                        </div>
-                        <div>
-                            { u.followed 
-                                ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={ () => { 
-                                    !props.isAuth ? <Navigate to={"/login"}/> : props.unfollow(u.id);
-                                }}>Unfollow</button> 
-                                : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={ () => {
-                                    !props.isAuth ? <Navigate to={"/login"}/> : props.follow(u.id);
-                                } }>Follow</button> }
-                        </div>
-                    </div>
-                    <div>
-                        <div className="">
-                            {u.name}
-                        </div>
-                        <div className="">
-                            {u.status}
-                        </div>
-                        <div className="">
-                            {/* <h2>{u.location.country}</h2> */}
-                            {/* <h3>{u.location.city}</h3> */}
-                        </div>
-                    </div>
-                </div>
-            ))}
         </div>
     );
 }

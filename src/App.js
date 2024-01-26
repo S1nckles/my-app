@@ -9,8 +9,8 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import LoginPage from './components/Login/login';
 import Loading from './components/Common/Loading/Loading';
-import { initializeApp } from './redux/reducers/app-reducer';
 
+import { initializeApp } from './redux/reducers/app-reducer';
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { compose } from 'redux';
@@ -41,27 +41,12 @@ class App extends React.Component {
               <Route path='/users' element={<UsersContainer />} />
               <Route path='/login' element={<LoginPage />} />
             </Routes>
-          </div>
         </div>
+          </div>
       </BrowserRouter>
-    );
-  }
+  );
 }
-
-// function withRouter(Component) {
-//   function ComponentWithRouterProp(props) {
-//       // let location = useLocation();
-//       let navigate = useNavigate();
-//       let params = useParams();
-//       return (
-//           <Component
-//               {...props}
-//               router={{ navigate, params }}
-//           />
-//       );
-//   }
-//   return ComponentWithRouterProp;
-// }
+}
 
 let mapStateToProps = (state) => ({
   initialized: state.app.initialized

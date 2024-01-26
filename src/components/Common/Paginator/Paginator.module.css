@@ -1,0 +1,8 @@
+.pagination span {
+    font-size:22px;
+}
+
+.active {
+    font-weight: bold;
+    color: lightblue;
+}

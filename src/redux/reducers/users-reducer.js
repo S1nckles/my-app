@@ -1,4 +1,5 @@
 import { UserAPI } from "../../api/api";
+import { updateObjInArray } from "../../utils/helpersObj";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -14,7 +15,6 @@ let initialState = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: null,
-    // Якщо ми хочемо, щоб дізейблилась тільки кнопка, яку ми нажали, то замість booleang параметру ставимо масив
     followingInProgress: []
 }
 
@@ -23,22 +23,12 @@ const UsersReducer = (state = initialState, action) => {
         case FOLLOW:
             return {
                 ...state,
-                users: state.users.map(u => {
-                    if (u.id === action.userId) {
-                        return {...u, followed: true}
-                    }
-                    return u;
-                })
+                users: updateObjInArray(state.users, action.userId, 'id', {followed: true})
             } 
         case UNFOLLOW:
             return {
                 ...state,
-                users: state.users.map(u => {
-                    if (u.id === action.userId) {
-                        return {...u, followed: false}
-                    }
-                    return u;
-                })
+                users: updateObjInArray(state.users, action.userId, 'id', {followed: false})
             }
         case SET_USERS:
             // Копіюємо стейт і добавляємо до масиву users нових юзерів з серверу (склеюємо два массиви, ті що були і які прийшли)
@@ -70,39 +60,34 @@ export let setTotalUsersCount = (totalUsersCount) => ({type: SET_TOTAL_USERS_COU
 export let toggleIsFetching = (isFetching) => ({type: IS_TOGGLE_FETCHING, isFetching})
 export let toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId})
 
-export const requestUsers = (page, pageSize) => (dispatch) => {
+export const requestUsers = (page, pageSize) => async (dispatch) => {
     // пишемо dispatch(...) тому що він у тому ж самому файлі
     dispatch(toggleIsFetching(true));
     dispatch(setCurrentPage(page));
     // Для currentPage & pageSize передаємо через параметр, як на сторінці 42 в конспекті по реакту
-    UserAPI.getUsers(page, pageSize).then(response => {
-        // Коли ми зробили функ. if ми очистили компоненту і вона стала чистою 
-        if (response.items) {
-            dispatch(toggleIsFetching(false));
-            dispatch(setUsers(response.items));
-            dispatch(setTotalUsersCount(response.totalCount));
-        }
-    });
+    let response = await UserAPI.getUsers(page, pageSize) ;       
+    // Коли ми зробили функ. if ми очистили компоненту і вона стала чистою 
+    if (response.items) {
+        dispatch(toggleIsFetching(false));
+        dispatch(setUsers(response.items));
+        dispatch(setTotalUsersCount(response.totalCount));
+    }
 }
-export const follow = (userId) => (dispatch) => {
+
+const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {
     dispatch(toggleFollowingProgress(true, userId));
-    UserAPI.follow(userId).then(response => {             
-        dispatch(toggleFollowingProgress(true, userId));
-        if (response.data.resultCode === 0) {
-            dispatch(followSuccess(userId));
-        }
-        dispatch(toggleFollowingProgress(false, userId));
-    });
+    let response = await apiMethod(userId);
+    if (response.data.resultCode === 0) {
+        dispatch(actionCreator(userId));
+    }
+    dispatch(toggleFollowingProgress(false, userId));
+
 }
-export const unfollow = (userId) => (dispatch) => {
-    dispatch(toggleFollowingProgress(true, userId));
-    UserAPI.unfollow(userId).then(response => {             
-        dispatch(toggleFollowingProgress(true, userId));
-        if (response.data.resultCode === 0) {
-            dispatch(unfollowSuccess(userId));
-        }
-        dispatch(toggleFollowingProgress(false, userId));
-    });
+export const follow = (userId) => async (dispatch) => {
+    followUnfollowFlow(dispatch, userId, UserAPI.follow.bind(UserAPI), followSuccess)
+}
+export const unfollow = (userId) => async (dispatch) => {
+    followUnfollowFlow(dispatch, userId, UserAPI.unfollow.bind(UserAPI), unfollowSuccess)
 }
 
 export default UsersReducer;

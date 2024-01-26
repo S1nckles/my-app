@@ -15,3 +15,9 @@
     color: red;
     font-weight: bold;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
