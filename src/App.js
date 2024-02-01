@@ -15,6 +15,8 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import store from './redux/store-redux';
+import { Provider } from "react-redux";
 
 
 class App extends React.Component {
@@ -26,7 +28,7 @@ class App extends React.Component {
     if(!this.props.initialized) return <Loading />
     
     return (
-      <BrowserRouter>
+      
         <div className="app-wrapper">
           <HeaderContainer/>
           <Nav/>
@@ -43,7 +45,6 @@ class App extends React.Component {
             </Routes>
         </div>
           </div>
-      </BrowserRouter>
   );
 }
 }
@@ -52,6 +53,18 @@ let mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })
 
-export default compose(  
+let AppContainer = compose(  
   connect(mapStateToProps, {initializeApp})
-  )(App);
+)(App);
+
+const SamuraiJSApp = (props) => {
+  return <React.StrictMode>
+    <BrowserRouter>
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    </BrowserRouter>
+  </React.StrictMode>
+}
+
+export default SamuraiJSApp;
