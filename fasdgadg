@@ -1,0 +1,479 @@
+[33mcommit 7eda1fd8e12994f93eb28821888d2339691b1ed0[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: S1nckles <68485540+S1nckles@users.noreply.github.com>
+Date:   Sat Feb 3 11:32:14 2024 +0100
+
+    Delete CNAME
+
+[33mcommit b236de6b56f351cc2569b984ad34ab57e7ea696e[m
+Author: S1nckles <68485540+S1nckles@users.noreply.github.com>
+Date:   Sat Feb 3 11:31:42 2024 +0100
+
+    Update CNAME
+
+[33mcommit 4bdc791919badce07cf033b4007f419bb1dd4730[m
+Author: S1nckles <68485540+S1nckles@users.noreply.github.com>
+Date:   Sat Feb 3 11:29:50 2024 +0100
+
+    Update CNAME
+
+[33mcommit 0aecd22e68f0d61e38ef175c8f845bcc522ad401[m
+Author: S1nckles <68485540+S1nckles@users.noreply.github.com>
+Date:   Sat Feb 3 11:29:03 2024 +0100
+
+    Update CNAME
+
+[33mcommit db5f35779d099b753b89ef168c2ff2a12fbdf8ca[m
+Author: S1nckles <68485540+S1nckles@users.noreply.github.com>
+Date:   Sat Feb 3 11:28:42 2024 +0100
+
+    Update CNAME
+
+[33mcommit adb62b06cbedc80ba77f1f97f4e774fb64cc51e9[m
+Author: S1nckles <68485540+S1nckles@users.noreply.github.com>
+Date:   Sat Feb 3 11:28:21 2024 +0100
+
+    Update CNAME
+
+[33mcommit 6103fa326594e1df179bcb2513f2df7105f2bbd3[m
+Author: S1nckles <68485540+S1nckles@users.noreply.github.com>
+Date:   Sat Feb 3 11:27:59 2024 +0100
+
+    Update CNAME
+
+[33mcommit b2fe1fd54ef35d7926f3009f983c1a2f916ff067[m
+Author: S1nckles <68485540+S1nckles@users.noreply.github.com>
+Date:   Sat Feb 3 11:27:12 2024 +0100
+
+    Update CNAME
+
+[33mcommit ca43da6a5b24a2d020a4157bbaf7587d34cdf86d[m
+Author: S1nckles <68485540+S1nckles@users.noreply.github.com>
+Date:   Sat Feb 3 11:27:02 2024 +0100
+
+    Update CNAME
+
+[33mcommit 70c32209475446fd07feba1783ef0224af648d0a[m
+Author: S1nckles <68485540+S1nckles@users.noreply.github.com>
+Date:   Sat Feb 3 11:25:16 2024 +0100
+
+    Update CNAME
+
+[33mcommit 1826d1c05a98352154f5db2535324c349f44801d[m
+Author: S1nckles <68485540+S1nckles@users.noreply.github.com>
+Date:   Sat Feb 3 11:23:11 2024 +0100
+
+    Update CNAME
+
+[33mcommit 35e2d5097be2e322500b86206886fd0ea53dfa52[m
+Author: S1nckles <68485540+S1nckles@users.noreply.github.com>
+Date:   Sat Feb 3 11:21:49 2024 +0100
+
+    Create CNAME
+
+[33mcommit 12aefd57c2d0e95c452bf01047c5d4cbd65fe3ba[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Feb 3 11:03:51 2024 +0100
+
+    Lazy & Suspense
+
+[33mcommit e8a58c8157863782937e4481f44a5fd0fe1d45f1[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Feb 3 11:03:13 2024 +0100
+
+    Lazy & Suspense
+
+[33mcommit 4e5752e689e13c8a0aa6702e5208616759ed5ac7[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Feb 3 09:22:32 2024 +0100
+
+    Paginator, TDD, (the beginning of familiarization with Classnames)
+
+[33mcommit 3567c1a839b546257f5535930baad71fef835c2c[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Feb 1 13:51:54 2024 +0100
+
+    TDD Components
+
+[33mcommit ba408ccf859ca59f1d4ffebf643cbde6af25f4a4[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Fri Jan 26 20:55:28 2024 +0100
+
+    ReduxDucks (refactor)
+
+[33mcommit 11771c1b2ca4987136910ab82dd09b6fde12e7d0[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Jan 25 07:59:54 2024 +0100
+
+     Converting other class components to hooks
+
+[33mcommit ac9800d1799c70ec9bbd8d9d9bc7207fdb7ee6d4[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Jan 25 07:25:03 2024 +0100
+
+    TDD (testing)
+
+[33mcommit ee6a8ba1000c6012c8b3181a4d043611f2455ae9[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Jan 20 09:46:27 2024 +0100
+
+    Memo (Optimization)
+
+[33mcommit 621d69886e68fa25443635390f5eaf8af563274c[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Jan 18 20:11:46 2024 +0100
+
+    useEffect (hooks)
+
+[33mcommit 657ce0d9417598b59689ed08c51ddcfbafc4df33[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Jan 18 17:53:43 2024 +0100
+
+    useState() (hooks)
+
+[33mcommit 375613633b3092693069457a7fb7ea91d6f18c34[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Jan 13 13:34:44 2024 +0100
+
+    Reselect
+
+[33mcommit 248209432f35862d73cb8be975ae60785e7fc03f[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Jan 6 12:46:02 2024 +0100
+
+    *
+
+[33mcommit 5e18029e5b9ddb82d3d3b9661e319a766a565aa2[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Jan 6 12:45:35 2024 +0100
+
+    Selectors (reselect part 1)
+
+[33mcommit 2a0dfa32c358a84e8d51474350792b5af792a657[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Jan 6 12:26:51 2024 +0100
+
+    initialize App (withRouter)
+
+[33mcommit f54b8ca34070efb70503e8b2d4e2f3f1a4674a45[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Jan 6 12:25:46 2024 +0100
+
+    Initialize App
+
+[33mcommit c17b53e3a282c93f7c5f0587a0818b7b63c3222b[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Jan 4 21:16:14 2024 +0100
+
+    View our profile
+
+[33mcommit ee9390ba8d807c5811e85d9b437e94cc061754ce[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Jan 4 21:13:17 2024 +0100
+
+    StopSubmit (form-redux)
+
+[33mcommit e72f807f148255d621c9a115c1fe5acfe93c46ce[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Mon Jan 1 21:12:59 2024 +0100
+
+    LogIn - LogOut
+
+[33mcommit 357d4abf58f7ef0e33e4f11c248a4f8aa6aa61c5[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Dec 30 11:16:26 2023 +0100
+
+    LoginContainer (Outline)
+
+[33mcommit c7b701192200ad1aed796edd11d19313d5736819[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Dec 30 11:14:34 2023 +0100
+
+    Redux-form (Validations)
+
+[33mcommit 78898f1a24ccb936c1c63ebc67af66e9fd388fcd[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Fri Dec 29 11:28:32 2023 +0100
+
+    Redux-form (beginning)
+
+[33mcommit 711a961b96a66082250c25325d5d1991194a482f[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Fri Dec 29 09:43:41 2023 +0100
+
+    Redux-form (beginning)
+
+[33mcommit 4dc5bd95b189b1bce19000d93c034fb1278111e5[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Dec 28 07:47:44 2023 +0100
+
+    ComponentDidUpdate
+
+[33mcommit 00f826787c8bbcf3033d8e79b32ea896b646155f[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Dec 28 06:24:17 2023 +0100
+
+    Status #2 (DAL & BLL levels)
+
+[33mcommit f43edba94420c0479b6932608421f150541d2e98[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Mon Dec 25 14:15:56 2023 +0100
+
+    status
+
+[33mcommit f2059980d9bf4aa0516a221ad02f92e7a6adc7ea[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Mon Dec 25 13:31:04 2023 +0100
+
+    compose
+
+[33mcommit 697910bf1e1d8c1629733b20b06729e982d5bac5[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sun Dec 24 12:20:46 2023 +0100
+
+    HOC (Hight Order Components)
+
+[33mcommit 39b930afebaf657da1c48794607621d067825190[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Dec 23 14:13:40 2023 +0100
+
+    Redirect(Navigate)
+
+[33mcommit c7d917b7306b25c6aa52112977f67e899bdfb0dd[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Fri Dec 22 09:44:28 2023 +0100
+
+    Thunk + Default img users in /profile
+
+[33mcommit e6b81964f0708540662fe136e57f1e663b45d00c[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Dec 9 16:30:06 2023 +0100
+
+    button disabled (follow\unfollow)
+
+[33mcommit 11bf30319b3a339774e9091980bb7fd3b0671470[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Wed Dec 6 19:54:26 2023 +0100
+
+    DAL
+
+[33mcommit 529340d6844c79ea5fa6e03b8e26d9a48ba2d8e6[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Nov 30 06:42:51 2023 +0100
+
+    axios in Users, withCredentials
+
+[33mcommit 2acb82a02347df44e8c63240cf4322f478b559cc[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Fri Nov 17 15:02:41 2023 +0100
+
+    Auth me
+
+[33mcommit a30ef8134c58bb08f1a3f0e7132865ec7ee72d70[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Nov 16 14:10:48 2023 +0100
+
+    My Id
+
+[33mcommit dbd5d8f45de73cc963feae9f59253cf3d6519d84[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Fri Nov 3 17:16:29 2023 +0100
+
+    Profile
+
+[33mcommit d26552d774881b9f96069c243ee2491217927e5f[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Fri Nov 3 08:41:10 2023 +0100
+
+    MapDispatchToProps LifeHack
+
+[33mcommit af6489d3bc6d52c5bbdb854ced13d4026b21fd70[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Fri Nov 3 07:24:52 2023 +0100
+
+    Preloader (Loading)
+
+[33mcommit 0d887b4d0443b009df9879400e2b299e86f868e8[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Nov 2 14:04:28 2023 +0100
+
+    ContainerComponent
+
+[33mcommit fa558edbcfd1cc6f914a3092da70544d8e393593[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Nov 2 11:24:26 2023 +0100
+
+    Pagination
+
+[33mcommit 530d1d2dc25dc341ed66b83343673ad436935c9c[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Tue Oct 31 13:39:29 2023 +0100
+
+    api & ClassComponent
+
+[33mcommit 7869dfcae09fd8835780c53d91caac5eeb20bd27[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Mon Oct 30 14:46:07 2023 +0100
+
+    UsersPage
+
+[33mcommit ded8e247498ca7e97bda140909666f71c491ea9c[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Mon Oct 30 11:25:07 2023 +0100
+
+    Copy
+
+[33mcommit bc63e4c9e03d5242de26e325306c3c44d7cd8949[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Fri Oct 27 13:40:47 2023 +0200
+
+    React-Redux
+
+[33mcommit 7f6bb999706074ba3f2de0fccd1d8c9fb8b0296b[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Oct 21 12:56:26 2023 +0200
+
+    Context Store
+
+[33mcommit 475cbfebd5250ab70a465e8dbdc64af24b248c44[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Fri Oct 20 09:17:38 2023 +0200
+
+    ContainerComponents
+
+[33mcommit 71b029903808a58860b8e0405088703c9306025d[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Oct 19 11:54:30 2023 +0200
+
+    Redux
+
+[33mcommit 5300ec68e10c12c4dc1c0c6b46ee911510291fda[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Oct 19 09:03:35 2023 +0200
+
+    Reducer
+
+[33mcommit ab36e945fdb917bdb2d7993bc70293a1995f038b[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Wed Oct 18 10:36:31 2023 +0200
+
+    ActionCreator
+
+[33mcommit 1b266287f16a9f345bd795d3c0966f5589f7cd1f[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Wed Oct 18 09:10:00 2023 +0200
+
+    refactoring with dispatch
+
+[33mcommit e2b1f97bfd448c7ea0fc3a7ed577c3fd0297599e[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Wed Oct 18 09:09:21 2023 +0200
+
+    Dispatch
+
+[33mcommit cb152e6fd862e6986f1c29e1c22c8021a1370709[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Wed Oct 18 08:45:44 2023 +0200
+
+    Create Store (own redux)
+
+[33mcommit a9a88a5157aca1c484c2b7e6b3e52ecfc21c6e50[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Wed Oct 11 19:35:24 2023 +0200
+
+    Adding subscribe and observer
+
+[33mcommit ab9d7d78a5aae70eab56075132cad4fedab192e6[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Wed Oct 11 19:33:55 2023 +0200
+
+    DEL Render.js
+
+[33mcommit 0c38ba350bce76ce72956398110f84f94dfa6cb5[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Wed Oct 11 19:13:57 2023 +0200
+
+    Adding render
+
+[33mcommit 6e9bce5c6e4bb9c162f9fc6df8af889e5dd55b32[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Wed Oct 11 19:13:45 2023 +0200
+
+    Flux
+
+[33mcommit 7870d87f4a323d89341974bc8f1a7788b53eafdc[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Sep 30 09:34:49 2023 +0200
+
+    Refacktor
+
+[33mcommit d121a2b5ada5a7cbed83e2c15e11abf3a9548b23[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Sep 30 09:34:31 2023 +0200
+
+    transfer 'state'
+
+[33mcommit c913f4af62d8c7e8b51522c3031bea127d38fa8e[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Sep 30 09:34:10 2023 +0200
+
+    Adding sidebar.friends
+
+[33mcommit 1c275007f74684025140d70d121ca79efa7d5624[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Sep 30 09:33:54 2023 +0200
+
+    Adding FriendItem
+
+[33mcommit 7411cfa15d28b450bbeb0287b3083b73df91d251[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Sep 30 08:35:10 2023 +0200
+
+    transfer 'state'
+
+[33mcommit 0c79a018ea100b9486da909aacac62554f705f1b[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Sep 30 08:34:15 2023 +0200
+
+    Adding own state
+
+[33mcommit e4a2b48cc764985f7174455469cd86e7a392e63a[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Sep 30 08:33:53 2023 +0200
+
+    Adding Friends section
+
+[33mcommit bdb2d69014962b1592e1b788dfe36a614a90c9f3[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Thu Sep 21 11:17:43 2023 +0200
+
+    Adding Data ~ Adding dialogItem, messageItem and ProfileInfo
+
+[33mcommit ed87f5365538b3461549dfe97c730c6115e8ab53[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Sep 9 06:53:40 2023 +0200
+
+    Adding Router-dom / Adding some styles
+
+[33mcommit f0c6d9de739af78cf2c63c047da88fc4b30ef143[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Fri Sep 8 10:56:34 2023 +0200
+
+    Adding component Dialogs
+
+[33mcommit 91480e039f59d288d0db326ece6f0adb83b4856e[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Wed Sep 6 11:54:10 2023 +0200
+
+    Restructuring files/folders, adding style and interacting with props
+
+[33mcommit d3c5c5ee39d6b46be997fe25bd89e04a412506d5[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Tue Sep 5 12:46:44 2023 +0200
+
+    Header, Nav, Content
+
+[33mcommit 7240448d391f5a100e4df692df5638fedb6a467e[m
+Author: Andrey <ilynych0810@gmail.com>
+Date:   Sat Sep 2 09:58:27 2023 +0200
+
+    Initialize project using Create React App
