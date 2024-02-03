@@ -9,7 +9,7 @@ import LoginPage from './components/Login/login';
 import Loading from './components/Common/Loading/Loading';
 
 import { initializeApp } from './redux/reducers/app-reducer';
-import React, { lazy, Suspense } from 'react';
+import React, { lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
