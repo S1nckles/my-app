@@ -1,8 +1,38 @@
-.pagination span {
-    font-size:22px;
+.pagination {
+    display: inline-flex;
+    gap: 5px;
+    margin: 10px 10px 50px 10px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px;
+    padding: 10px;
 }
 
-.active {
+.pagination span {
+    padding: 5px 10px;
+    color: white;
+    font-size:22px;
+}
+.pagination span:hover {
+    background-color: gray;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.pagination button {
+    padding: 5px 10px;
+    font-size:16px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(12, 115, 212);
+    color: white;
+}
+
+.pageNumber {
+    background-color: rgb(39, 37, 37);
+    border-radius: 10px
+}
+
+.selectedPage {
     font-weight: bold;
-    color: lightblue;
+    background-color: rgb(86, 8, 211);
 }
