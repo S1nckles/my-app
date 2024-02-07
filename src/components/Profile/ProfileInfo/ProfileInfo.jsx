@@ -1,9 +1,16 @@
 import React from "react";
 import s from './ProfileInfo.module.css';
-import ProfileStatus from "./ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import UserPhoto from "../../../assets/img/user.png";
 
 export const ProfileInfo = (props) => {
+  debugger
+  const onMainPhotoChange = (e) => {
+    if (e.target.files.length) {
+      props.savePhoto(e.target.files[0]);
+    }
+  }
+
   return (
     <div>
       {props.profile && (
@@ -14,7 +21,8 @@ export const ProfileInfo = (props) => {
       {props.profile && (
         <div className={s.content__profile}>
           <div className={s.profileImg}>
-            <img src={props.profile.photos?.small ? props.profile.photos?.small : `http://localhost:3000/static/media/user.13384bf700c11f359465.png`} alt="avatar" />
+            <img src={props.profile.photos?.small ? props.profile.photos?.small : UserPhoto} alt="avatar" />
+            {!props.isOwner && <input type={"file"} onChange={onMainPhotoChange} />}
           </div>
           <h2>{props.profile.fullName}</h2>
           <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
