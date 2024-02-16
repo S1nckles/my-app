@@ -25,3 +25,32 @@
 .profileContacts a:hover {
     text-decoration: underline;
 }
+
+.profileStatus {
+    display: flex;
+    gap: 5px;
+}
+
+.profileContacts {
+    padding: 10px 5px 25px 0px;
+}
+.contactItems {
+    padding: 5px 0 5px 15px;
+}
+
+.contactsItem {
+    padding: 5px 0 5px 10px;
+}
+
+.contactItem {
+    padding: 2px 0;
+}
+.contactItem a {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+.contactItem a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
