@@ -16,6 +16,7 @@
 }
 .nav ul li a.activeLink {
     color: rgb(94, 16, 251);
+    font-weight: 400;
 }
 
 .friends{
