@@ -10,7 +10,7 @@ import Loading from './components/Common/Loading/Loading';
 
 import { initializeApp } from './redux/reducers/app-reducer';
 import React, { lazy } from 'react';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import store from './redux/store-redux';
@@ -35,15 +35,16 @@ class App extends React.Component {
           <Nav/>
           <div className="app-wrapper-content">
             <Routes>
-              
+              <Route path='/' element={withSuspense(ProfileContainer)} />
               {/* Дальше : пишеться параметр. ? означає що параметр не обовязковий */}
               <Route path='/profile/:profileId?' element={withSuspense(ProfileContainer)} />
               <Route path='/dialogs' element={withSuspense(DialogsContainer)} />
-              <Route path='/news' element={<News />} />
+              <Route path='/news/adad' element={<News />} />
               <Route path='/music' element={<Music />} />
               <Route path='/contacts' element={<Contacts />} />
-              <Route path='/users' element={<UsersContainer />} />
+              <Route path='/users' element={<UsersContainer />} />              
               <Route path='/login' element={withSuspense(LoginPage)} />
+              <Route path='*' element={''} />
             </Routes>
         </div>
           </div>
@@ -61,11 +62,11 @@ let AppContainer = compose(
 
 const SamuraiJSApp = (props) => {
   return <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <Provider store={store}>
         <AppContainer />
       </Provider>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>
 }
 
